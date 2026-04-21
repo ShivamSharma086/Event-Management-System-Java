@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Payment Page</title>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+
+<h2>Event Payment</h2>
+
+<button id="payBtn">Pay Now</button>
+
+<script>
+
+document.getElementById("payBtn").onclick = function (e) {
+    e.preventDefault();
+
+    var options = {
+        "key": "rzp_test_SaJUDo09QpGZqM",
+        "amount": 50000,
+        "currency": "INR",
+        "name": "Evently Management",
+        "description": "Event Registration Payment",
+
+        "handler": function (response) {
+
+            console.log("Razorpay Payment ID:", response.razorpay_payment_id);
+
+            fetch("PaymentSuccessServlet", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams({
+                    payment_id: response.razorpay_payment_id,
+                    payment_status: "SUCCESS",
+                    amount: "500"
+                })
+            })
+
+            .then(res => res.text())
+            .then(data => {
+
+                console.log("Server Response:", data);
+
+                if (data.trim() === "SUCCESS") {
+                    alert("Payment Stored Successfully");
+                    window.location.href = "success.html";
+                } else {
+                    alert("FAILED: " + data);
+                }
+
+            })
+            .catch(err => {
+                console.log("Fetch Error:", err);
+                alert("Server Error");
+            });
+
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+};
+
+</script>
+
+</body>
+</html>

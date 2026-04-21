@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Evently Ticket</title>
+
+<link rel="stylesheet" href="../total.css">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+<style>
+
+.ticket{
+margin:auto;
+text-align:center;
+}
+
+/* QR code flex center */
+#qrcode{
+display:flex;
+justify-content:center;   /* horizontal center */
+align-items:center;       /* vertical center */
+margin:20px auto;
+}
+
+/* Center button */
+button{
+display:block;
+margin:auto;
+}
+
+.footer{
+width:flex;
+margin:auto;
+text-align:right;
+}
+</style>
+
+</head>
+<body>
+
+<h1 style="text-align:center">Welcome To Evently ... An Event Management Portal!</h1>
+
+ <h2 id="common" style="text-align: center">Your Event Ticket</h2>
+
+<div class="ticket" id="ticket">
+
+<h2>Event Entry Pass</h2>
+
+<p><b>Name :</b> <span id="name"></span></p>
+<p><b>Event :</b> <span id="event"></span></p>
+<p><b>Ticket ID :</b> <span id="ticketid"></span></p>
+
+<div id="qrcode"></div>
+
+<button onclick="downloadTicket()">Download Ticket</button>
+
+</div>
+
+<div class="footer">
+<label>
+<label class="topnav-right">
+© <span id="year"></span> Evently. All rights reserved.
+</label>
+</label>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<script>
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+window.onload = function() {
+
+const params = new URLSearchParams(window.location.search);
+
+var name = params.get("name");
+var event = params.get("event");
+
+if(!name) name = "Guest";
+if(!event) event = "Event";
+
+var ticketID = "EVT" + Math.floor(Math.random()*1000000);
+
+document.getElementById("name").innerText = name;
+document.getElementById("event").innerText = event;
+document.getElementById("ticketid").innerText = ticketID;
+
+var qrData = "TicketID:" + ticketID + " | Name:" + name + " | Event:" + event;
+
+new QRCode(document.getElementById("qrcode"), {
+text: qrData,
+width: 200,
+height: 200
+});
+
+}
+
+function downloadTicket() {
+html2canvas(document.getElementById("ticket")).then(function(canvas){
+var link = document.createElement("a");
+link.download = "EventTicket.png";
+link.href = canvas.toDataURL();
+link.click();
+});
+}
+
+</script>
+
+</body>
+</html>

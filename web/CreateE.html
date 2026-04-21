@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event - Evently</title>
+    <link rel="stylesheet" href="total.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 style="text-align: center">Welcome To Evently ... An Event Management Portal!</h1><
+    <h2 id="common" style="text-align: center">Add Events</h2>
+
+    <div style="text-align: left; max-width: 500px; margin: auto;">
+        <a href="EventDetails.html"><button>Event Details Page</button></a>
+    </div>
+
+    <center>
+    <form method="post" action="AddEvent">
+        <!-- Removed Event Number field -->
+
+        Event Name:<br><br>
+        <input id="text" type="text" name="EventName" required><br><br>
+
+        Coordinator Name:<br><br>
+        <input id="text" type="text" name="coordinatorName" required><br><br>
+
+        Coordinator Number:<br><br>
+        <input id="text" type="text" name="CoordinatorNo" required><br><br>
+
+        Fee for registration:<br><br>
+        <input id="text" type="text" name="fee" required><br><br>
+
+        Venue of event:<br><br>
+        <input id="text" type="text" name="venue" required><br><br>
+
+        Date of event:<br><br>
+        <input id="text" type="date" name="date" required><br><br>
+
+        Admin UPI ID:<br><br>
+        <input id="text" type="text" name="upi" placeholder="example@upi" required><br><br>
+
+        <input type="submit" id="sub" value="Submit">
+    </form>
+    </center>
+
+    <div>
+        <label class="topnav-right">
+           Making every event memorable!
+        </label>
+    </div>
+</body>
+</html>

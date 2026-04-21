@@ -1,81 +1,139 @@
-# Evently ... An Event Management Portal!
+# 🎟️ Evently – Event Management Portal
 
-## 1. Project description:
+## 1. 📌 Project Description
 
-Evently is an Event Management System. It is a Web Application for registering events. 
+Evently is a web-based Event Management System designed to simplify event creation, registration, and participation.
 
-It allows access to two types of users, with the following functions:
+It provides role-based access to two types of users:
 
-1. Administrator -> Log in, Create Events, View Participant Events, View Participant Payments, Log Out.
-2. Participant -> Register As New User, Log In As Existing User, Create Events, Pay For Events, View Events, Log Out.
+### 👨‍💼 Administrator
+- Login
+- Create & Manage Events
+- View Participant Registrations
+- Track Payments
+- Logout
 
-## 2. Tech Stack:
+### 👤 Participant
+- Register as New User
+- Login as Existing User
+- Browse & Register for Events
+- Make Payments
+- View Registered Events
+- Logout
 
-HTML/CSS/JavaScript, Java 11, Java Servlet, JDBC, MySQL/MySQL Workbench/MySQL Server, Apache Tomcat Server, Git/GitHub.
+---
 
-## 3. Installing:
+## 2. 🚀 Tech Stack
 
-Prerequisite: Apache NetBeans 13.0, Apache Tomcat Server 10.0, MySQL Server, MySQL Workbench (Optional ... I prefer to perform MySql operations at the command line "mysql -u root -p")
+- Frontend: HTML, CSS, JavaScript  
+- Backend: Java (Servlets, JDBC)  
+- Database: MySQL  
+- Server: Apache Tomcat  
+- Tools: NetBeans, Git & GitHub  
 
-1. Clone the repo.
+---
 
+## 3. ⚙️ Installation & Setup
+
+### 🔧 Prerequisites
+- Apache NetBeans (13 or above)
+- Apache Tomcat Server (10+)
+- MySQL Server
+- MySQL Workbench (Optional)
+
+---
+
+### 📥 Clone the Repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/Event-Management-System-Java.git
 ```
-https://github.com/AAdewunmi/Event-Management-System-Java.git
-```
 
-2. How to use:
+---
 
-a. Open project in NetBeans
+### ▶️ Run the Project
 
-b. Start SQL Server
+1. Open project in NetBeans  
+2. Start MySQL Server  
+3. Start Apache Tomcat Server  
+4. Run the application  
 
-c. Start Apache Tomcat Server
+---
 
-d. Run the application in the IDE (NetBeans)
+### 🔐 Login Options
 
-e. You have two choices at the "Evently" landing page:
+#### 🛠️ Admin Login Credentials
+| Username | Password |
+|----------|---------|
+| A101     | Admin101 |
+| A202     | Admin202 |
+| A303     | Admin303 |
+| A404     | Admin404 |
 
-        (i) Login as an admin
-        List of Admin usernames and password
+---
 
-        "A101"; "Admin101";
+#### 👤 Participant
+- Register as a new user  
+- OR login with existing credentials  
 
-        "A202"; "Admin202";
+---
 
-        "A303"; "Admin303";
+## 4. 💳 Payment Integration (Razorpay)
 
-        "A404"; "Admin404";
+Evently integrates Razorpay Payment Gateway for secure online transactions.
 
-        (ii) Login as a participant:
-        - Register as new participant or 
-        - Login as existing participant
+### Features:
+- Secure payment processing  
+- Real-time payment confirmation  
+- Transaction tracking  
+- Payment success handling via servlet  
 
-## 4. Nice to have:
+---
 
-Payment gateway i.e. PayPal, Apple Pay, Google Pay etc.
+## 5. 🎫 Ticket Generation & QR Verification
 
-Email / Text message notification.
-    
-## 5. Screenshot of the landing page:
+After successful registration and payment:
 
-![Image description](web/screenshot.jpeg)
+- Digital ticket is generated  
+- Unique QR code is created for each ticket  
+- QR can be scanned for entry verification  
 
-## 6. Source:
+### Benefits:
+- Fast check-in  
+- Fraud prevention  
+- Easy validation  
 
-- Adapted from:
+---
 
-UDEMY: Java Programming Bootcamp, Develop 20 Real World Projects, Java Web Application Development Course, 
+## 6. ⭐ Future Enhancements
 
-Learn To Build Projects Using JSP, JDBC, Servlets, Swing, Spring Boot, Hibernate
+- Email/SMS notifications  
+- Payment options (UPI, PayPal, Google Pay)  
+- Admin analytics dashboard  
+- Mobile responsiveness  
 
-- Project Name:
-Project 2: Event Management System
+---
 
-- Created by: 
-Engineering.Org.In
+## 7. 📸 Screenshot
 
-- Date Created:
-Last updated 11/2021
+![Landing Page](web/screenshot.jpeg)
 
-- URL:
-https://www.udemy.com/course/build-real-world-java-projects-jsp-servlets-springboot/
+---
+
+## 8. 📂 Project Structure
+
+- src/java/com/evently/ → Backend logic  
+- web/ → Frontend files  
+- WEB-INF/ → Config files  
+
+---
+
+## 9. 👨‍💻 Author
+
+Shivam Sharma
+
+---
+
+## 🔗 Note
+
+Make sure your database configuration and Razorpay API keys are properly set before running the project.
